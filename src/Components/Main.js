@@ -1,4 +1,5 @@
 import '../App.css';
+import Success from './Success';
 import {
   // eslint-disable-next-line no-unused-vars
   Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Typography, Container,
@@ -26,96 +27,103 @@ const useStyles = makeStyles((theme) => ({
 function Main() {
   const classes = useStyles();
   return (
-    <Container>
-    <CssBaseline />
-    <div className={classes.paper}>
-      <Typography component="h1" variant="h5">
-        King County House Price Prediction
-      </Typography>
-      <form className={classes.form} noValidate>
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="bedroom"
-          label="Number of Bedrooms"
-          name="bedroom"
-          autoComplete="3"
-          autoFocus
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="Bathroom"
-          label="Number of Bathrooms"
-          id="Bathroom"
-          autoComplete="1"
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="sqft_living"
-          label="House SQFT (house size)"
-          id="sqft_living"
-          autoComplete="1100"
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="sqft_lot"
-          label="Lot SQFT (land size)"
-          id="sqft_lot"
-          autoComplete="5650"
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="floor"
-          label="number of floors"
-          id="floor"
-          autoComplete="5650"
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="waterfront"
-          label="Is your house waterfront? (type y or n)"
-          id="waterfront"
-          autoComplete="n"
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="view"
-          label="do you have a view of the city?"
-          id="view"
-          autoComplete="n"
-        />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-        >
-          Search
-        </Button>
-      </form>
-    </div>
-  </Container>
+      <Container>
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Typography component="h1" variant="h5">
+          King County House Price Prediction
+        </Typography>
+        <Grid container spacing={3} direction="row" justify="center">
+          <Grid item xs={6}>
+            <form className={classes.form} noValidate>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="bedroom"
+                label="Number of Bedrooms"
+                name="bedroom"
+                autoComplete="3"
+                autoFocus
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="Bathroom"
+                label="Number of Bathrooms"
+                id="Bathroom"
+                autoComplete="1"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="sqft_living"
+                label="House SQFT (house size)"
+                id="sqft_living"
+                autoComplete="1100"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="sqft_lot"
+                label="Lot SQFT (land size)"
+                id="sqft_lot"
+                autoComplete="5650"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="floor"
+                label="number of floors"
+                id="floor"
+                autoComplete="5650"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="waterfront"
+                label="Is your house waterfront? (type y or n)"
+                id="waterfront"
+                autoComplete="n"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="view"
+                label="do you have a view of the city?"
+                id="view"
+                autoComplete="n"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Search
+              </Button>
+            </form>
+          </Grid>
+          <Grid item xs={6}>
+              <Success></Success>
+          </Grid>
+        </Grid>
+      </div>
+    </Container>
   );
 }
 
