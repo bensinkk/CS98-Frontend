@@ -1,10 +1,16 @@
-import {Box} from '@material-ui/core';
+import {Grid, Box, Typography} from '@material-ui/core';
 
-function Success() {
+function Success(props) {
 return (
-      <Box bgcolor='#C0C0C0' color='white' height="94%" width="100%" mt={3} style={{ fontSize: '20px' }}>
-          <p > $300,000 </p>
+    <Grid container 
+    justify="center"
+    alignItems="center">
+      <Box bgcolor='#C0C0C0' color='white' height="94%" width="50%" mt={3} style={{ fontSize: '20px' }}>
+        <Typography component="h2" variant="h5">
+          {props.price}
+        </Typography>
       </Box>
+    </Grid>
   );
 }
 
