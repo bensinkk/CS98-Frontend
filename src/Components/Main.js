@@ -50,14 +50,15 @@ class Main extends React.Component {
     )
   }
 
-  handleSearch = async () =>{
-    fetch('https://cs98-backend.herokuapp.com/test', { 
+  handleSearch = async () => {
+    const url = "https://cs98-backend.herokuapp.com/test";
+    fetch(url, { 
       method: 'POST', 
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     body: JSON.stringify({  
@@ -150,28 +151,6 @@ class Main extends React.Component {
                 margin="normal"
                 required
                 fullWidth
-                name="floors"
-                label="Number of floors"
-                id="floors"
-                autoComplete="1100"
-                onChange={this.changeHandler}
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="yr_built"
-                label="Year built"
-                id="yr_built"
-                autoComplete="1100"
-                onChange={this.changeHandler}
-              />
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
                 name="sqft_lot"
                 label="Lot SQFT (land size)"
                 id="sqft_lot"
@@ -183,10 +162,21 @@ class Main extends React.Component {
                 margin="normal"
                 required
                 fullWidth
-                name="floor"
+                name="floors"
                 label="number of floors"
-                id="floor"
-                autoComplete="5650"
+                id="floors"
+                autoComplete="1"
+                onChange={this.changeHandler}
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="yr_built"
+                label="Year built"
+                id="yr_built"
+                autoComplete="2000"
                 onChange={this.changeHandler}
               />
               <TextField
