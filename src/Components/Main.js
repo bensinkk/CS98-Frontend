@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import '../App.css';
-import Success from './Success';
 import {
   // eslint-disable-next-line no-unused-vars
-  Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Typography, Container,
+  Button, CssBaseline, TextField, Grid, Typography, Container,
 } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,8 +23,24 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
 function Main() {
+
+  const [allValues, setAllValues] = useState({
+    bedroom: '',
+    bathroom: '',
+    sqft_living: '',
+    sqft_lot: '',
+    waterfront: '',
+    view: ''
+    });
+
+  const changeHandler = e => {
+    setAllValues( prevValues => {
+        return { ...prevValues,[e.target.name]: e.target.value}
+      }
+    )
+  }
+
   const classes = useStyles();
   return (
       <Container>
@@ -34,7 +50,7 @@ function Main() {
           King County House Price Prediction
         </Typography>
         <Grid container spacing={3} direction="row" justify="center">
-          <Grid item xs={6}>
+          <Grid>
             <form className={classes.form} noValidate>
               <TextField
                 variant="outlined"
@@ -46,6 +62,7 @@ function Main() {
                 name="bedroom"
                 autoComplete="3"
                 autoFocus
+                onChange={changeHandler}
               />
               <TextField
                 variant="outlined"
@@ -56,6 +73,7 @@ function Main() {
                 label="Number of Bathrooms"
                 id="Bathroom"
                 autoComplete="1"
+                onChange={changeHandler}
               />
               <TextField
                 variant="outlined"
@@ -66,6 +84,7 @@ function Main() {
                 label="House SQFT (house size)"
                 id="sqft_living"
                 autoComplete="1100"
+                onChange={changeHandler}
               />
               <TextField
                 variant="outlined"
@@ -76,6 +95,7 @@ function Main() {
                 label="Lot SQFT (land size)"
                 id="sqft_lot"
                 autoComplete="5650"
+                onChange={changeHandler}
               />
               <TextField
                 variant="outlined"
@@ -85,7 +105,8 @@ function Main() {
                 name="floor"
                 label="number of floors"
                 id="floor"
-                autoComplete="5650"
+                autoComplete="2"
+                onChange={changeHandler}
               />
               <TextField
                 variant="outlined"
@@ -93,9 +114,10 @@ function Main() {
                 required
                 fullWidth
                 name="waterfront"
-                label="Is your house waterfront? (type y or n)"
+                label="Is your house waterfront? (type 1 for yes or 0 for no)"
                 id="waterfront"
                 autoComplete="n"
+                onChange={changeHandler}
               />
               <TextField
                 variant="outlined"
@@ -103,9 +125,10 @@ function Main() {
                 required
                 fullWidth
                 name="view"
-                label="do you have a view of the city?"
+                label="do you have a view of the city? (rate your view 0-4)"
                 id="view"
-                autoComplete="n"
+                autoComplete="0"
+                onChange={changeHandler}
               />
               <Button
                 type="submit"
@@ -117,9 +140,6 @@ function Main() {
                 Search
               </Button>
             </form>
-          </Grid>
-          <Grid item xs={6}>
-              <Success></Success>
           </Grid>
         </Grid>
       </div>
